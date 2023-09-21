@@ -1,7 +1,16 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import (render, 
+                              HttpResponseRedirect,
+                              get_object_or_404,
+                              redirect)
 from .forms import MedicoForm
 # Create your views here.
 from .models import Medico
+
+def list_view(request):
+    context = {}
+    context['dataset'] = Medico.objects.all()
+
+    return render(request, "list_view.html", context)
 
 def detail_view(request, id):
     context = {}
@@ -20,3 +29,11 @@ def update_view(request, id):
     context['form'] = form
 
     return render(request, "update_view.html", context)
+
+def delete_view(request, id):
+    context = {}
+    obj = get_object_or_404(Medico, id = id)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/clinica")
+    return render(request, "delete_view.html", context)

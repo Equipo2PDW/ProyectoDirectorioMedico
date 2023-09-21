@@ -1,0 +1,17 @@
+<div class="main">
+    {% for doctor in dataset %}
+    <h2> Nombre </h2>
+        {{ doctor.nombre }} {{doctor.apellido}}<br/>
+    <h2> Especialidades </h2>
+        {% for especialidad in doctor.especialidades.all %}
+        {{ especialidad }} <br/>
+        {% endfor %}
+    <h2> Sucursales </h2>
+        {% for sucursal in doctor.sucursales.all %}
+        {{ sucursal }} <br/>
+        {% endfor %}
+    <h2> Años de experiencia </h2>
+    {{ doctor.anos_experiencia }} años de experiencia profesional
+    <hr>
+    {% endfor %}  
+</div>
