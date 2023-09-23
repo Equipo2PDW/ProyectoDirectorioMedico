@@ -2,9 +2,9 @@ from django.shortcuts import (render,
                               HttpResponseRedirect,
                               get_object_or_404,
                               redirect)
-from .forms import MedicoForm
+from .forms import MedicoForm, CitaForm
 # Create your views here.
-from .models import Medico
+from .models import Medico, citaMedica
 
 def list_view(request):
     context = {}
@@ -43,7 +43,7 @@ def create_medico(request):
     form = MedicoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('list_view')
+        return redirect(list_view)
     context['form'] = form
     return render(request, "create_medico.html", context)
 
@@ -65,3 +65,20 @@ def buscar_especialidad_comuna(request, especialidad, comuna):
     context['dataset'] = Medico.objects.filter(especialidades__tipo= especialidad, sucursales__comuna__nombre= comuna)
 
     return render(request,"list_view.html", context)
+
+
+def citas_view(request):
+    context = {}
+    context['dataset'] = citaMedica.objects.all()
+
+    return render(request, "citas_view.html", context)
+
+def create_cita(request):
+    context = {}
+    form = CitaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect(citas_view)
+    context['form'] = form
+    return render(request, "create_cita.html", context)
+

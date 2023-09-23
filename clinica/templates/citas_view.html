@@ -1,0 +1,13 @@
+<div class="main">
+    {% for cita in dataset %}
+    <h2> Médico </h2>
+        {{ cita.medico.nombre }} {{cita.medico.apellido}}<br/>
+    <h2> Paciente </h2>
+        {{ cita.paciente.nombre }} {{cita.paciente.apellido}}<br/>
+    <h2> Sucursal </h2>
+        {{ cita.centro.nombre }} {{cita.centro.direccion}}<br/>
+    <h2> Fecha y hora </h2>
+        {{ cita.fecha }} {{cita.hora}}<br/>
+    <hr>
+    {% endfor %}  
+</div>
