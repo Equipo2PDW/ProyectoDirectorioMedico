@@ -37,3 +37,12 @@ def delete_view(request, id):
         obj.delete()
         return HttpResponseRedirect("/clinica")
     return render(request, "delete_view.html", context)
+
+def create_medico(request):
+    context = {}
+    form = MedicoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('list_view')
+    context['form'] = form
+    return render(request, "create_medico.html", context)
