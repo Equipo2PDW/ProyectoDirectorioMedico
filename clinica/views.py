@@ -46,3 +46,22 @@ def create_medico(request):
         return redirect('list_view')
     context['form'] = form
     return render(request, "create_medico.html", context)
+
+#funcion para buscar un medico en base a especialidad, mostrar resultados de medicos en el sistema que esten en esa especialidad
+def buscar_especialidad(request, especialidad):
+    context = {}
+    context['dataset'] = Medico.objects.filter(especialidades__tipo= especialidad)
+
+    return render(request,"list_view.html", context)
+
+def buscar_comuna(request, comuna):
+    context = {}
+    context['dataset'] = Medico.objects.filter(sucursales__comuna__nombre= comuna)
+
+    return render(request,"list_view.html", context)
+
+def buscar_especialidad_comuna(request, especialidad, comuna):
+    context = {}
+    context['dataset'] = Medico.objects.filter(especialidades__tipo= especialidad, sucursales__comuna__nombre= comuna)
+
+    return render(request,"list_view.html", context)
