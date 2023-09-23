@@ -23,5 +23,5 @@ urlpatterns = [
     path('buscar_comuna/<comuna>', buscar_comuna),
     path('buscar_especialidad_comuna/<especialidad>/<comuna>', buscar_especialidad_comuna),
     path('citas_view', citas_view),
-    #path('create_cita', create_cita),
+    path('create_cita', create_cita),
 ]
