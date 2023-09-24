@@ -43,6 +43,6 @@ def create_medico(request):
     form = MedicoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('list_view')
+        return redirect(list_view)
     context['form'] = form
     return render(request, "create_medico.html", context)
