@@ -1,0 +1,207 @@
+:root {
+    /* ===== Colors ===== */
+    --text: hsl(0, 0%, 0%);
+
+    /* Primary - White */
+    --bg: hsl(0, 0%, 100%);
+    --bg-2: hsl(0, 0%, 74%);
+    --bg-3: hsl(0, 0%, 62%);
+    --bg-4: hsl(0, 0%, 46%);
+
+    /* Secundary - Blue */
+    --secondary: hsl(245, 82%, 44%);
+    --secondary-d2: hsl(245, 82%, 30%);
+    --secondary-d3: hsl(244, 81%, 17%);
+
+    /* Accent - Green */
+    --accent: hsl(138, 96%, 51%);
+    --accent-d2: hsl(138, 90%, 36%);
+    --accent-d3: hsl(138, 90%, 27%);
+
+    /* Warning - Red */
+    --warning: hsl(1, 95%, 59%);
+    --warning-d2: hsl(1, 67%, 44%);
+    --warning-d3: hsl(1, 67%, 30%);
+
+    /* ===== Font sizes ===== */
+    /*  Hay que ver mejor lo de los tamaños */
+    --heading: 36px;
+    --subheading: 28px;
+    --body: 16px;
+    --label: 11px;
+}
+
+/* Agregar con ::after en h1 un subrallado */
+
+body {
+    font-family: Poppins !important;
+    font-weight: 400;
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 12fr);
+    grid-auto-rows: auto;
+    /* grid-template-rows: repeat(1000, 8px); */
+    column-gap: 32px;
+    margin: 50px;
+}
+
+.text-container {
+    grid-column: 2 / 8;
+    grid-row: span 5;
+}
+
+h1 {
+    font-size: var(--heading);
+    color: var(--text);
+    margin: 0;
+    padding: 5px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 90%;
+    height: 4px;
+    background-color: var(--accent);
+    /* margin-top: 5px; */
+}
+
+h2 {
+    font-size: var(--subheading);
+    color: var(--bg-4);
+    margin: 0px;
+    padding: 5px;
+}
+
+
+h3 {
+    font-size: var(--body);
+    color: var(--text);
+    margin: 0px;
+    padding: 5px;
+}
+
+
+p {
+    font-size: var(--label);
+    color: var(--text);
+    margin: 0px;
+    padding: 5px;
+}
+
+/* ===== Botones ===== */
+button {
+    font-size: var(--body);
+
+    width: auto;
+    height: auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 7px;
+    padding: 0.625rem 1.875rem;
+    gap: 0.625rem;
+}
+
+button.secondary {
+    color: var(--bg);
+    background: var(--secondary);
+}
+
+button.secondary:hover {
+    color: var(--bg);
+    background: var(--secondary-d2);
+}
+
+button.secondary:active {
+    color: var(--bg);
+    background: var(--secondary-d3);
+}
+
+button.accent {
+    color: var(--text);
+    background: var(--accent);
+}
+
+button.accent:hover {
+    color: var(--text);
+    background: var(--accent-d2);
+}
+
+button.accent:active {
+    color: var(--text);
+    background: var(--accent-d3);
+}
+
+/* Specialist Seacher */
+
+.specialist-searcher-container {
+    grid-column: 2 / 12;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3rem;
+    gap: 1.45rem;
+}
+
+figure.specialist-img {
+    width: fit-content;
+    overflow: hidden;
+    /* display: block; */
+}
+
+.specialist-text {
+    width: fit-content;
+    padding: 5px 8px 5px 8px;
+    /* display: block; */
+}
+
+.specialist-text::before {
+    content: "";
+    display: block;
+    width: 90%;
+    height: 1px;
+    background-color: var(--accent);
+    /* margin-top: 5px; */
+}
+
+.specialist-card {
+    /* width: 100%; */
+    /* flex: 0 0 calc(33.33% - 1px); */
+    /* max-width: calc(33.33% - 1px); */
+    width: 18.3125rem;
+    margin: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg);
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    cursor: default;
+    transition: all 300ms ease;
+}
+
+
+.specialist-card:hover {
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+}
+
+.specialist-card:hover img{
+    transform: scale(1.1)
+}
+
+
+.specialist-card:active {
+    background: var(--accent);
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+    color: var(--bg);
+}
+
+.specialist-card:active img{
+    transform: scale(1.3)
+}

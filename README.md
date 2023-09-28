@@ -1,5 +1,6 @@
 # ProyectoDirectorioMedico
 
+## Para Windows
 Crear  entorno virtual en la carpeta ProyectoDirectorioMedico
 python -m virtualenv venv
 
@@ -16,13 +17,17 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 
+## Para los vividos de Linux
+- `make activate`: Para activar el entorno virtual. (Lo crea si no existe)
+- `make run`: Para correr el server. Corre `makemigrations` y `migrate` antes de `runserver`.
+
+## Detalles
 en localhost:8000/admin se puede ver el panel de administrador
 
 En caso de querer crear una nueva app en el proyecto:
 python manage.py startapp nombre_app
 
 La BD de pruebas queda subida para que frontend no tenga q crear nuevos datos desde cero
-
 
 
 
