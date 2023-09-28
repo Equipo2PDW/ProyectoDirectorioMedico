@@ -1,0 +1,25 @@
+table tbody tr:nth-child(odd) {
+	background: #ffffff;
+}
+table tbody tr:nth-child(even) {
+	background: #0004ff;
+  color: #fff;
+}
+table thead {
+  background: #000399;
+  color: #fff;
+  font-size: 18px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-container {
+  grid-column: 2 / 12;
+}
+
+.text-input {
+  grid-column: 2 / 12;
+  grid-row: span 5;
+}

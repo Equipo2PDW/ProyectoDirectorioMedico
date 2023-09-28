@@ -1,13 +1,42 @@
-<div class="main">
-    {% for cita in dataset %}
-    <h2> Médico </h2>
-        {{ cita.medico.nombre }} {{cita.medico.apellido}}<br/>
-    <h2> Paciente </h2>
-        {{ cita.paciente.nombre }} {{cita.paciente.apellido}}<br/>
-    <h2> Sucursal </h2>
-        {{ cita.centro.nombre }} {{cita.centro.direccion}}<br/>
-    <h2> Fecha y hora </h2>
-        {{ cita.fecha }} {{cita.hora}}<br/>
-    <hr>
-    {% endfor %}  
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/citas_view.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+<div class = "container">
+    <div class="text-container">
+        <h1>Administra tus citas médicas</h1>
+        <h2>Utilizando nuestra herramienta , buscar todas tus citas, pasadas y futuras, además puedes cancelar tus citas aquí.</h2>
+    </div>
+    <div class="text-input">
+        <input
+            type="text"
+            id="uname"
+            name="name"
+            placeholder="Ingrese nombre y/o apellido del médico" />
+        <button> buscar </button>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                <th>Doctor(a)</th>
+                <!-- <th>Especialidad</th> -->
+                <th>Sucursal</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cita in dataset %}
+                <tr>
+                <td>{{ cita.medico.nombre }} {{ cita.medico.apellido }}</td>
+                <td>{{ cita.centro.nombre }} {{ cita.centro.direccion }}</td>
+                <td>{{ cita.fecha }}</td>
+                <td>{{ cita.hora }}</td>
+                <td> botón eliminar </td>
+                </tr>
+                {% endfor %}  
+            </tbody>
+        </table>
+    </div>
 </div>
