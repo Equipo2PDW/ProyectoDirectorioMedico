@@ -1,6 +1,7 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/citas_view.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <div class = "container">
     <div class="text-container">
         <h1>Administra tus citas médicas</h1>
@@ -33,7 +34,7 @@
                 <td>{{ cita.centro.nombre }} {{ cita.centro.direccion }}</td>
                 <td>{{ cita.fecha }}</td>
                 <td>{{ cita.hora }}</td>
-                <td> botón eliminar </td>
+                <td> <button> Eliminar </button> </td>
                 </tr>
                 {% endfor %}  
             </tbody>
