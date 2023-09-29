@@ -9,11 +9,44 @@
         <h2>Utilizando nuestra herramienta, puedes buscar a nuestros medicos por su nombre, especialidad o cercania.</h2>
     </div>
 
+    <form action="#" class="specialist-search-form">
+        <div class="specialist-search-bar">
+            <input 
+                type="type" 
+                id="specialist-name"
+                name="specialist-name" 
+                placeholder="Ingrese nombre y/o apellido del médico"
+            >
+        </div>
+
+        <div class="specialist-search-bar">
+            
+            <select name="commune" id="commune">
+            {% for doctor in dataset %}
+                {% for sucursal in doctor.sucursales.all %}
+                <option value="{{ sucursal }}"> {{ sucursal }} </option> 
+                {% endfor %}  
+            {% endfor %}  
+            </select>            
+
+            <select name="speciality" id="speciality">
+            {% for doctor in dataset %}
+                {% for especialidad in doctor.especialidades.all %}
+                <option value="{{ especialidad }}"> {{ especialidad }} </option> 
+                {% endfor %}  
+            {% endfor %}  
+            </select>
+
+            <button type="submit" class="secondary"> Buscar </button>
+
+        </div>
+    </form>
+
     <div class="specialist-searcher-container">
         
         {% for doctor in dataset %}
        
-        <a href="">
+        <a href="{% url 'detail_view' id=doctor.id %}">
             <div class="specialist-card">
                 <figure class="specialist-img">
                     <img src="{% static 'img/person.png' %}">
