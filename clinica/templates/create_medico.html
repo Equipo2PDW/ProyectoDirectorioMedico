@@ -1,13 +1,46 @@
-<div class="main">
-    <!-- Create a Form -->
-    <form method="POST">
-        <!-- Security token by Django -->
-        {% csrf_token %}
- 
-        <!-- form as paragraph -->
-        {{ form.as_p }}
- 
-        <input type="submit" value="Create">
-    </form>
- 
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/create_medico.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+<div class="container">
+
+    <div class="container">
+        <div class="text-container">
+            <h1>Añadir un médico</h1>
+        </div>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message alert alert-success">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="main">
+            <!-- Crear un formulario -->
+            <form method="POST">
+                <!-- Token de seguridad de Django -->
+                {% csrf_token %}
+                
+                <!-- Formulario como párrafo con estilos para los campos de entrada -->
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {% if field.name == 'especialidades' or field.name == 'sucursales' %}
+                            {{ field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                
+                <input type="submit" value="Crear">
+            </form>
+        </div>
+    </div>
+       
+         
+
+    </div>
 </div>

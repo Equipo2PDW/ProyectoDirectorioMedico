@@ -5,6 +5,8 @@ from django.shortcuts import (render,
 from .forms import MedicoForm, CitaForm
 # Create your views here.
 from .models import Medico, citaMedica, Comuna, Especialidad
+from django.contrib import messages
+
 
 def list_view(request):
     context = {}
@@ -43,7 +45,8 @@ def create_medico(request):
     form = MedicoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect(list_view)
+        messages.success(request, 'Médico añadido correctamente.')
+        return redirect(create_medico)
     context['form'] = form
     return render(request, "create_medico.html", context)
 
