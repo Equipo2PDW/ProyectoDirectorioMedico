@@ -5,7 +5,9 @@
 <div class = "container">
     <div class="text-container">
         <h1>Administra tus citas médicas</h1>
-        <h2>Utilizando nuestra herramienta , buscar todas tus citas, pasadas y futuras, además puedes cancelar tus citas aquí.</h2>
+        <h2>Utilizando nuestra herramienta , buscar todas tus citas, pasadas y futuras, además puedes cancelar tus citas aquí.
+        </h2>
+    
     </div>
     <div class="text-input">
         <input
@@ -39,5 +41,15 @@
                 {% endfor %}  
             </tbody>
         </table>
+
+        
     </div>
 </div>
+
+{% for comuna in datacomunas %}
+        {{ comuna.nombre }}
+        {% endfor %} 
+
+{% for espe in dataespe %}
+        {{ espe.tipo }}
+        {% endfor %} 

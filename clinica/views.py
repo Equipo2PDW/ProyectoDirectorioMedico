@@ -4,7 +4,7 @@ from django.shortcuts import (render,
                               redirect)
 from .forms import MedicoForm, CitaForm
 # Create your views here.
-from .models import Medico, citaMedica
+from .models import Medico, citaMedica, Comuna, Especialidad
 
 def list_view(request):
     context = {}
@@ -82,3 +82,55 @@ def create_cita(request):
     context['form'] = form
     return render(request, "create_cita.html", context)
 
+
+#BUSCADOR
+
+def comunas_view(request):
+    context = {}
+    context['datacomunas'] = Comuna.objects.all()
+    return render(request, "citas_view.html", context)
+
+def especialidades_view(request):
+    context = {}
+    context['dataespe'] = Especialidad.objects.all()
+
+    return render(request, "citas_view.html", context)
+
+def todo_view(request): #muestra 
+    context = {}
+    context['datacomunas'] = Comuna.objects.all()
+    context['dataespe'] = Especialidad.objects.all()
+    context['dataset'] = citaMedica.objects.all()
+    return render(request, "citas_view.html", context)
+
+
+
+def vista_principal_busqueda(request):
+    comunas = Comuna.objects.all()
+    especialidades = Especialidad.objects.all()
+
+    especialidad = request.POST.get('especialidad')
+    comuna = request.POST.get('comuna')
+    nombre_medico = request.POST.get('nombre_medico')
+
+    resultados = Medico.objects.all()
+
+    if especialidad:
+        resultados = resultados.filter(especialidades__tipo=especialidad)
+    
+    if comuna:
+        resultados = resultados.filter(sucursales__comuna__nombre=comuna)
+    
+    if nombre_medico:
+        resultados = resultados.filter(nombre__icontains=nombre_medico)
+    
+    print("Especialidad:", especialidad)
+    print("Comuna:", comuna)
+    print("Nombre del Médico:", nombre_medico)
+
+    context = {
+        'comunas': comunas,
+        'especialidades': especialidades,
+        'resultados': resultados,
+    }
+    return render(request, "list_view.html", context)
