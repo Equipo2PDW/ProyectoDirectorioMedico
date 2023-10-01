@@ -3,7 +3,7 @@
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
-        Are you sure you want to delete this item ?
+        Estas seguro que deseas eliminar a este medico?
         <input type="submit" value="Yes"/>
         <a href="../detail_view/{{data.id}}">Cancel</a>
     </form>
