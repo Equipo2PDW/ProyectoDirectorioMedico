@@ -20,7 +20,7 @@ from .views import (detail_view,
 urlpatterns = [
     path('list_view', vista_principal_busqueda),
     path('detail_view/<id>', detail_view, name='detail_view'),
-    path('create', create_medico),
+    path('create', create_medico, name='create_medico'),
     path('<id>/update', update_view),
     path('<id>/delete', delete_view ),
     path('buscar_especialidad/<especialidad>', buscar_especialidad),

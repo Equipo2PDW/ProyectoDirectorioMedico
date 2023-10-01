@@ -1,5 +1,5 @@
 *** Variables ***
-${ID_TEMP}                   10
+${ID_TEMP}              10
 ${HOSTNAME}             localhost
 ${PORT}                 8000                
 ${SERVER_detail}               http://${HOSTNAME}:${PORT}/clinica/detail_view/${ID_TEMP}
@@ -40,7 +40,7 @@ Scenario: Crear medico
   Select From List By Label    id:id_sucursales   Sucursal Centro | comuna: Santiago
   Input Text  id:id_anos_experiencia  10
   Click Button  Crear
-  Wait Until Page Contains Element  id:mensaje
+  Wait Until Page Contains  MedicoTest
 
 Scenario: Actualizar informacion medico
   Go TO  ${SERVER_update}

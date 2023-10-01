@@ -47,7 +47,7 @@ def create_medico(request):
     if form.is_valid():
         form.save()
         messages.success(request, 'Médico añadido correctamente.')
-        return redirect(create_medico)
+        return HttpResponseRedirect("/clinica/list_view")
     context['form'] = form
     return render(request, "create_medico.html", context)
 
@@ -112,9 +112,10 @@ def todo_view(request): #muestra
 def vista_principal_busqueda(request):
     comunas = Comuna.objects.all()
     especialidades = Especialidad.objects.all()
+    resultados = Medico.objects.all()
     context = {
         'comunas': comunas,
-        'especialidades': especialidades,
+        'especialidades': especialidades
     }
 
     if request.method == 'POST':
@@ -149,5 +150,6 @@ def vista_principal_busqueda(request):
     context = {
         'comunas': comunas,
         'especialidades': especialidades,
+        'resultados': resultados,
     }
     return render(request, "list_view.html", context)
