@@ -4,9 +4,7 @@
         <!-- Security token by Django -->
         {% csrf_token %}
         Are you sure you want to delete this item ?
-        <a href="../list_view">
-            <input type="button" value="yes" />
-         </a>
+        <input type="submit" value="yes" />
         <a href="../detail_view/{{data.id}}">Cancel</a>
     </form>
 </div>

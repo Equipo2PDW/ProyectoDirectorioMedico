@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.9.7 on win32)" generated="20231001 13:49:54.947" rpa="false" schemaversion="4">
+<suite id="s1" name="Test" source="C:\Users\seba1\OneDrive\Escritorio\PPDS\ProyectoDirectorioMedico\test.robot">
+<kw name="open Browserr" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${SERVER_buscador}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231001 13:49:55.248" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8000/clinica/list_view'.</msg>
+<status status="PASS" starttime="20231001 13:49:55.247" endtime="20231001 13:49:57.229"/>
+</kw>
+<status status="PASS" starttime="20231001 13:49:55.247" endtime="20231001 13:49:57.229"/>
+</kw>
+<test id="s1-t1" name="Scenario: Crear medico" line="31">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SERVER_create}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231001 13:49:57.230" level="INFO">Opening url 'http://localhost:8000/clinica/create'</msg>
+<status status="PASS" starttime="20231001 13:49:57.230" endtime="20231001 13:49:57.291"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>id=crear</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:57.304" endtime="20231001 13:49:57.345"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Añadir</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231001 13:49:57.448" level="INFO">Current page contains text 'Añadir'.</msg>
+<status status="PASS" starttime="20231001 13:49:57.390" endtime="20231001 13:49:57.448"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:id_nombre</arg>
+<arg>MedicoTest</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:57.456" level="INFO">Typing text 'MedicoTest' into text field 'id:id_nombre'.</msg>
+<status status="PASS" starttime="20231001 13:49:57.456" endtime="20231001 13:49:57.577"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:id_apellido</arg>
+<arg>ApellidoTest</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:57.582" level="INFO">Typing text 'ApellidoTest' into text field 'id:id_apellido'.</msg>
+<status status="PASS" starttime="20231001 13:49:57.582" endtime="20231001 13:49:57.706"/>
+</kw>
+<kw name="Unselect All From List" library="SeleniumLibrary">
+<arg>id:id_especialidades</arg>
+<doc>Unselects all options from multi-selection list ``locator``.</doc>
+<msg timestamp="20231001 13:49:57.707" level="INFO">Unselecting all options from list 'id:id_especialidades'.</msg>
+<status status="PASS" starttime="20231001 13:49:57.706" endtime="20231001 13:49:57.782"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>id:id_especialidades</arg>
+<arg>Cardiología</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20231001 13:49:57.787" level="INFO">Selecting options from selection list 'id:id_especialidades' by label Cardiología.</msg>
+<status status="PASS" starttime="20231001 13:49:57.786" endtime="20231001 13:49:57.904"/>
+</kw>
+<kw name="Unselect All From List" library="SeleniumLibrary">
+<arg>id:id_sucursales</arg>
+<doc>Unselects all options from multi-selection list ``locator``.</doc>
+<msg timestamp="20231001 13:49:57.905" level="INFO">Unselecting all options from list 'id:id_sucursales'.</msg>
+<status status="PASS" starttime="20231001 13:49:57.904" endtime="20231001 13:49:57.945"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>id:id_sucursales</arg>
+<arg>Sucursal Centro | comuna: Santiago</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20231001 13:49:57.946" level="INFO">Selecting options from selection list 'id:id_sucursales' by label Sucursal Centro | comuna: Santiago.</msg>
+<status status="PASS" starttime="20231001 13:49:57.946" endtime="20231001 13:49:57.998"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:id_anos_experiencia</arg>
+<arg>10</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:57.999" level="INFO">Typing text '10' into text field 'id:id_anos_experiencia'.</msg>
+<status status="PASS" starttime="20231001 13:49:57.999" endtime="20231001 13:49:58.064"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Crear</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:58.065" level="INFO">Clicking button 'Crear'.</msg>
+<status status="PASS" starttime="20231001 13:49:58.064" endtime="20231001 13:49:58.172"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>id:mensaje</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:58.173" endtime="20231001 13:49:58.186"/>
+</kw>
+<status status="PASS" starttime="20231001 13:49:57.229" endtime="20231001 13:49:58.186"/>
+</test>
+<test id="s1-t2" name="Scenario: Actualizar informacion medico" line="45">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SERVER_update}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231001 13:49:58.188" level="INFO">Opening url 'http://localhost:8000/clinica/9/update'</msg>
+<status status="PASS" starttime="20231001 13:49:58.187" endtime="20231001 13:49:58.238"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Nombre:</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:58.240" endtime="20231001 13:49:58.263"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:id_nombre</arg>
+<arg>Alonso</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:58.264" level="INFO">Typing text 'Alonso' into text field 'id:id_nombre'.</msg>
+<status status="PASS" starttime="20231001 13:49:58.264" endtime="20231001 13:49:58.335"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:id_apellido</arg>
+<arg>Sanchez</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:58.336" level="INFO">Typing text 'Sanchez' into text field 'id:id_apellido'.</msg>
+<status status="PASS" starttime="20231001 13:49:58.335" endtime="20231001 13:49:58.409"/>
+</kw>
+<kw name="Unselect All From List" library="SeleniumLibrary">
+<arg>id:id_especialidades</arg>
+<doc>Unselects all options from multi-selection list ``locator``.</doc>
+<msg timestamp="20231001 13:49:58.410" level="INFO">Unselecting all options from list 'id:id_especialidades'.</msg>
+<status status="PASS" starttime="20231001 13:49:58.409" endtime="20231001 13:49:58.477"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>id:id_especialidades</arg>
+<arg>Cardiología</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20231001 13:49:58.478" level="INFO">Selecting options from selection list 'id:id_especialidades' by label Cardiología.</msg>
+<status status="PASS" starttime="20231001 13:49:58.477" endtime="20231001 13:49:58.524"/>
+</kw>
+<kw name="Unselect All From List" library="SeleniumLibrary">
+<arg>id:id_sucursales</arg>
+<doc>Unselects all options from multi-selection list ``locator``.</doc>
+<msg timestamp="20231001 13:49:58.525" level="INFO">Unselecting all options from list 'id:id_sucursales'.</msg>
+<status status="PASS" starttime="20231001 13:49:58.525" endtime="20231001 13:49:58.578"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>id:id_sucursales</arg>
+<arg>Sucursal Centro | comuna: Santiago</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20231001 13:49:58.579" level="INFO">Selecting options from selection list 'id:id_sucursales' by label Sucursal Centro | comuna: Santiago.</msg>
+<status status="PASS" starttime="20231001 13:49:58.578" endtime="20231001 13:49:58.624"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:id_anos_experiencia</arg>
+<arg>10</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:58.625" level="INFO">Typing text '10' into text field 'id:id_anos_experiencia'.</msg>
+<status status="PASS" starttime="20231001 13:49:58.624" endtime="20231001 13:49:58.687"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Update</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:58.688" level="INFO">Clicking button 'Update'.</msg>
+<status status="PASS" starttime="20231001 13:49:58.688" endtime="20231001 13:49:58.796"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Alonso Sanchez</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:58.796" endtime="20231001 13:49:58.810"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Cardiología</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:58.811" endtime="20231001 13:49:58.824"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Sucursal Centro | comuna: Santiago</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:58.824" endtime="20231001 13:49:58.835"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>10 años de experiencia profesional</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:58.835" endtime="20231001 13:49:58.847"/>
+</kw>
+<status status="PASS" starttime="20231001 13:49:58.187" endtime="20231001 13:49:58.847"/>
+</test>
+<test id="s1-t3" name="Scenario: Buscar por Comuna" line="61">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SERVER_buscador}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231001 13:49:58.849" level="INFO">Opening url 'http://localhost:8000/clinica/list_view'</msg>
+<status status="PASS" starttime="20231001 13:49:58.848" endtime="20231001 13:49:58.894"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>id=buscador</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:58.894" endtime="20231001 13:49:58.908"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Conoce a nuestros medicos</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231001 13:49:58.924" level="INFO">Current page contains text 'Conoce a nuestros medicos'.</msg>
+<status status="PASS" starttime="20231001 13:49:58.908" endtime="20231001 13:49:58.924"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id:comuna</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231001 13:49:58.925" endtime="20231001 13:49:58.951"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>id:comuna</arg>
+<arg>Santiago</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231001 13:49:58.952" level="INFO">Selecting options from selection list 'id:comuna' by value Santiago.</msg>
+<status status="PASS" starttime="20231001 13:49:58.952" endtime="20231001 13:49:59.013"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Buscar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:59.014" level="INFO">Clicking button 'Buscar'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.013" endtime="20231001 13:49:59.154"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Dr. Pia Diaz</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231001 13:49:59.169" level="INFO">Current page contains text 'Dr. Pia Diaz'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.155" endtime="20231001 13:49:59.169"/>
+</kw>
+<status status="PASS" starttime="20231001 13:49:58.848" endtime="20231001 13:49:59.169"/>
+</test>
+<test id="s1-t4" name="Scenario: Buscar por Especialidad" line="71">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SERVER_buscador}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231001 13:49:59.171" level="INFO">Opening url 'http://localhost:8000/clinica/list_view'</msg>
+<status status="PASS" starttime="20231001 13:49:59.171" endtime="20231001 13:49:59.203"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>id=buscador</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:59.204" endtime="20231001 13:49:59.221"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Conoce a nuestros medicos</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231001 13:49:59.234" level="INFO">Current page contains text 'Conoce a nuestros medicos'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.221" endtime="20231001 13:49:59.234"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id:especialidad</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231001 13:49:59.235" endtime="20231001 13:49:59.255"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>id:especialidad</arg>
+<arg>Infantil</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231001 13:49:59.256" level="INFO">Selecting options from selection list 'id:especialidad' by value Infantil.</msg>
+<status status="PASS" starttime="20231001 13:49:59.256" endtime="20231001 13:49:59.311"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Buscar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:59.312" level="INFO">Clicking button 'Buscar'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.312" endtime="20231001 13:49:59.379"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Dr. Sergio Ramirez</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231001 13:49:59.392" level="INFO">Current page contains text 'Dr. Sergio Ramirez'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.379" endtime="20231001 13:49:59.392"/>
+</kw>
+<status status="PASS" starttime="20231001 13:49:59.171" endtime="20231001 13:49:59.392"/>
+</test>
+<test id="s1-t5" name="Scenario: Buscar por Nombre" line="80">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SERVER_buscador}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231001 13:49:59.394" level="INFO">Opening url 'http://localhost:8000/clinica/list_view'</msg>
+<status status="PASS" starttime="20231001 13:49:59.393" endtime="20231001 13:49:59.414"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>id=buscador</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:59.414" endtime="20231001 13:49:59.421"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Conoce a nuestros medicos</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231001 13:49:59.432" level="INFO">Current page contains text 'Conoce a nuestros medicos'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.422" endtime="20231001 13:49:59.432"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>id:nombre_medico</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231001 13:49:59.433" endtime="20231001 13:49:59.450"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:nombre_medico</arg>
+<arg>Joaquin</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:59.451" level="INFO">Typing text 'Joaquin' into text field 'id:nombre_medico'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.451" endtime="20231001 13:49:59.522"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Buscar</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:59.523" level="INFO">Clicking button 'Buscar'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.523" endtime="20231001 13:49:59.589"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Joaquin</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231001 13:49:59.602" level="INFO">Current page contains text 'Joaquin'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.590" endtime="20231001 13:49:59.602"/>
+</kw>
+<status status="PASS" starttime="20231001 13:49:59.393" endtime="20231001 13:49:59.603"/>
+</test>
+<test id="s1-t6" name="Scenario: Eliminar medico" line="89">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${SERVER_DETAIL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231001 13:49:59.604" level="INFO">Opening url 'http://localhost:8000/clinica/detail_view/9'</msg>
+<status status="PASS" starttime="20231001 13:49:59.604" endtime="20231001 13:49:59.633"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Nombre</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:59.633" endtime="20231001 13:49:59.645"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Eliminar</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231001 13:49:59.658" level="INFO">Current page contains text 'Eliminar'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.646" endtime="20231001 13:49:59.658"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=delete</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:59.659" level="INFO">Clicking element 'id=delete'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.659" endtime="20231001 13:49:59.776"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Are you sure you want to delete this item ?</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:59.779" endtime="20231001 13:49:59.791"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>yes</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231001 13:49:59.791" level="INFO">Clicking button 'yes'.</msg>
+<status status="PASS" starttime="20231001 13:49:59.791" endtime="20231001 13:49:59.906"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Conoce a nuestros medicos</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231001 13:49:59.910" endtime="20231001 13:49:59.920"/>
+</kw>
+<status status="PASS" starttime="20231001 13:49:59.603" endtime="20231001 13:49:59.921"/>
+</test>
+<kw name="close browserr" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231001 13:49:59.922" endtime="20231001 13:50:02.253"/>
+</kw>
+<status status="PASS" starttime="20231001 13:49:59.922" endtime="20231001 13:50:02.253"/>
+</kw>
+<doc>Django Robot Tests</doc>
+<status status="PASS" starttime="20231001 13:49:54.949" endtime="20231001 13:50:02.253"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
