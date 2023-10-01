@@ -1,5 +1,5 @@
 *** Variables ***
-${ID_TEMP}              10
+${ID_TEMP}              20
 ${HOSTNAME}             localhost
 ${PORT}                 8000                
 ${SERVER_detail}               http://${HOSTNAME}:${PORT}/clinica/detail_view/${ID_TEMP}
