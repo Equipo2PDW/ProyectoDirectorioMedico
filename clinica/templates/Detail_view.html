@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <div class="main">
      
     <!-- Specify fields to be displayed -->
@@ -13,5 +16,10 @@
         {% endfor %}
     <h2> Años de experiencia </h2>    
     {{ data.anos_experiencia }} años de experiencia profesional
+
+    <br><br>
+    <a href="../{{data.id}}/update" class="btn"> Editar </a>
+
+    <a href="../{{data.id}}/delete" class="btn"> Eliminar </a>
  
 </div>

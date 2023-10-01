@@ -94,6 +94,21 @@ p {
 }
 
 /* ===== Botones ===== */
+a.btn {
+    font-size: var(--body);
+    display: inline-flex;
+    width: auto;
+    height: 2.5rem;
+    background: #4b5996;
+    text-align: center;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    padding: 0.625rem 1.875rem;
+    gap: 0.625rem;
+    text-decoration : none;
+}
+
 button {
     font-size: var(--body);
 
