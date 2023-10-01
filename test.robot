@@ -92,5 +92,5 @@ Scenario: Eliminar medico
   Page Should Contain  Eliminar
   Click Element  id=delete
   Wait Until Page Contains  Estas seguro que deseas eliminar a este medico?
-  Click Button  Yes
+  Click Button  yes
   Wait Until Page Contains  Conoce a nuestros medicos
