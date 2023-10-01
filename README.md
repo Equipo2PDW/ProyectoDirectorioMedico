@@ -17,7 +17,7 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 
-## Para los vividos de Linux
+## Para Linux
 - `make activate`: Para activar el entorno virtual. (Lo crea si no existe)
 - `make run`: Para correr el server. Corre `makemigrations` y `migrate` antes de `runserver`.
 
