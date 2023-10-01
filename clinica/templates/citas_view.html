@@ -2,54 +2,34 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/citas_view.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<div class = "container">
-    <div class="text-container">
-        <h1>Administra tus citas médicas</h1>
-        <h2>Utilizando nuestra herramienta , buscar todas tus citas, pasadas y futuras, además puedes cancelar tus citas aquí.
-        </h2>
-    
-    </div>
-    <div class="text-input">
-        <input
-            type="text"
-            id="uname"
-            name="name"
-            placeholder="Ingrese nombre y/o apellido del médico" />
-        <button> buscar </button>
-    </div>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                <th>Doctor(a)</th>
-                <!-- <th>Especialidad</th> -->
-                <th>Sucursal</th>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for cita in dataset %}
-                <tr>
-                <td>{{ cita.medico.nombre }} {{ cita.medico.apellido }}</td>
-                <td>{{ cita.centro.nombre }} {{ cita.centro.direccion }}</td>
-                <td>{{ cita.fecha }}</td>
-                <td>{{ cita.hora }}</td>
-                <td> <button> Eliminar </button> </td>
-                </tr>
-                {% endfor %}  
-            </tbody>
-        </table>
 
-        
+<div class="card-container">
+    <div class = "doctor-container">
+        <div class="doctor-info">
+            <h3 style="text-align: center;">{{ medico.nombre }} {{ medico.apellido }} </h3>
+            <button>Agenda tu hora</button>
+        </div>
     </div>
+    <div class="specs-container">
+        <div class="doctor-info">
+            <!-- falta backend jeje-->
+            <h1>Estudios</h1>
+            <table class="table-studios">
+                <thead>
+                    <tr>
+                    <th>{{medico.especialidad.nombre}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>{{ medico.especialidad.experiencia }} </td>
+                    </tr>
+                    <tr>
+                        <td>{{ medico.especialidad.universidad }} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
-
-{% for comuna in datacomunas %}
-        {{ comuna.nombre }}
-        {% endfor %} 
-
-{% for espe in dataespe %}
-        {{ espe.tipo }}
-        {% endfor %} 

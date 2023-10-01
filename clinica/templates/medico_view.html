@@ -1,0 +1,36 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/citas_view.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/medico_view.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+<div class="card-container">
+    <div class = "doctor-container">
+        <div class="doctor-info">
+            <h3 style="text-align: center;">{{ medico.nombre }} {{ medico.apellido }} </h3> 
+            <button>Agenda tu hora</button>
+        </div>
+    </div>
+    <div class="specs-container">
+        <div class="doctor-info">
+            <!-- falta backend jeje-->
+            <h1>Estudios</h1>
+            <table>
+                <thead>
+                    <tr>
+                    <th>{{medico.especialidad.nombre}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>{{ medico.especialidad.experiencia }} </td>
+                    </tr>
+                    <tr>
+                        <td>{{ medico.especialidad.universidad }} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
