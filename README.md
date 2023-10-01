@@ -1,33 +1,56 @@
-# ProyectoDirectorioMedico
+# Proyecto Directorio Médico
 
-## Para Windows
-Crear  entorno virtual en la carpeta ProyectoDirectorioMedico
-python -m virtualenv venv
+ 
+Desarrollo de aplicación Web para un Directorio Médico basada en Django junto a Robot Framework.
+  
 
-Activar entorno virtual en la misma carpeta
-.\venv\Scripts\activate
+## Pre-requisitos 📋
 
-Ejecutar: pip install -r requirements.txt
-Para que trabajemos con las mismas versiones
-En caso de instalar una nueva librería, etc, ejecutar: pip freeze > requirements.txt y subir el archivo 
-actualizado al repositorio
+  
 
-Para correr el proyecto:
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+- Python 3
 
-## Para los vividos de Linux
-- `make activate`: Para activar el entorno virtual. (Lo crea si no existe)
-- `make run`: Para correr el server. Corre `makemigrations` y `migrate` antes de `runserver`.
+  
+
+## Instalación ⚙️
+
+  
+
+- Clonar el repositorio 
+
+- Crear  entorno virtual en la carpeta ProyectoDirectorioMedico
+
+		python -m virtualenv venv
+
+- Activar entorno virtual en la misma carpeta
+
+		.\venv\Scripts\activate
+-	Para Linux
+	- `make activate`: Para activar el entorno virtual. (Lo crea si no existe)
+	- `make run`: Para correr el server. Corre `makemigrations` y `migrate` antes de `runserver`.
+- Ejecutar: 
+	
+		pip install -r requirements.txt
+
+- Para correr el proyecto:
+
+		python manage.py makemigrations
+
+		python manage.py migrate
+
+		python manage.py runserver
+
+- Para ejecutar test:
+		
+		robot test.robot
 
 ## Detalles
-en localhost:8000/admin se puede ver el panel de administrador
 
-En caso de querer crear una nueva app en el proyecto:
-python manage.py startapp nombre_app
+Panel administrador
 
-La BD de pruebas queda subida para que frontend no tenga q crear nuevos datos desde cero
+	localhost:8000/admin
+## Licencia 🔓
 
+  
 
-
+MIT LICENCE
