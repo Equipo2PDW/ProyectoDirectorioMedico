@@ -7,15 +7,9 @@
     <div class="text-container">
         <h1>Conoce a nuestros medicos</h1>
         <h2>Utilizando nuestra herramienta, puedes buscar a nuestros medicos por su nombre, especialidad o cercania.</h2>
-        {% for comuna in comunas %}
-            {{ comuna.nombre }}
-        {% endfor %} 
-        <br>
-        {% for espe in especialidades %}
-            {{ espe.tipo }}
-        {% endfor %} 
+        
     </div>
-    <form method="post" action="#">
+    <form method="post" action="">
         {% csrf_token %}
 
         <!-- Lista desplegable para la comuna -->
@@ -44,40 +38,8 @@
         <input type="submit" value="Buscar">
     </form>
 
-    <form action="#" class="specialist-search-form">
-        <div class="specialist-search-bar">
-            <input 
-                type="type" 
-                id="specialist-name"
-                name="specialist-name" 
-                placeholder="Ingrese nombre y/o apellido del médico"
-            >
-        </div>
 
-        <div class="specialist-search-bar">
-            
-            <select name="commune" id="commune">
-            {% for doctor in dataset %}
-                {% for sucursal in doctor.sucursales.all %}
-                <option value="{{ sucursal }}"> {{ sucursal }} </option> 
-                {% endfor %}  
-            {% endfor %}  
-            </select>            
-
-            <select name="speciality" id="speciality">
-            {% for doctor in dataset %}
-                {% for especialidad in doctor.especialidades.all %}
-                <option value="{{ especialidad }}"> {{ especialidad }} </option> 
-                {% endfor %}  
-            {% endfor %}  
-            </select>
-
-            <button type="submit" class="secondary"> Buscar </button>
-
-        </div>
-    </form>
-
-    <div class="specialist-searcher-container">
+    <div class="specialist-searcher-container" id="buscador">
         {% if resultados %}
         
         {% for doctor in resultados %}

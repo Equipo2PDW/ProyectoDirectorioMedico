@@ -51,6 +51,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+MIDDLEWARE_CLASSES = (
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'DjangoLibrary.middleware.AutologinAuthenticationMiddleware',
+    'DjangoLibrary.middleware.FactoryBoyMiddleware',
+    'DjangoLibrary.middleware.QuerySetMiddleware',
+)
+
 ROOT_URLCONF = 'DirectorioMedico.urls'
 
 TEMPLATES = [

@@ -111,29 +111,42 @@ def todo_view(request): #muestra
 def vista_principal_busqueda(request):
     comunas = Comuna.objects.all()
     especialidades = Especialidad.objects.all()
-
-    especialidad = request.POST.get('especialidad')
-    comuna = request.POST.get('comuna')
-    nombre_medico = request.POST.get('nombre_medico')
-
-    resultados = Medico.objects.all()
-
-    if especialidad:
-        resultados = resultados.filter(especialidades__tipo=especialidad)
-    
-    if comuna:
-        resultados = resultados.filter(sucursales__comuna__nombre=comuna)
-    
-    if nombre_medico:
-        resultados = resultados.filter(nombre__icontains=nombre_medico)
-    
-    print("Especialidad:", especialidad)
-    print("Comuna:", comuna)
-    print("Nombre del Médico:", nombre_medico)
-
     context = {
         'comunas': comunas,
         'especialidades': especialidades,
-        'resultados': resultados,
+    }
+
+    if request.method == 'POST':
+        comunas = Comuna.objects.all()
+        especialidades = Especialidad.objects.all()
+
+        especialidad = request.POST.get('especialidad')
+        comuna = request.POST.get('comuna')
+        nombre_medico = request.POST.get('nombre_medico')
+
+        resultados = Medico.objects.all()
+
+        if especialidad:
+            resultados = resultados.filter(especialidades__tipo=especialidad)
+        
+        if comuna:
+            resultados = resultados.filter(sucursales__comuna__nombre=comuna)
+        
+        if nombre_medico:
+            resultados = resultados.filter(nombre__icontains=nombre_medico)
+        
+        print("Especialidad:", especialidad)
+        print("Comuna:", comuna)
+        print("Nombre del Médico:", nombre_medico)
+
+        context = {
+            'comunas': comunas,
+            'especialidades': especialidades,
+            'resultados': resultados,
+        }
+        return render(request, "list_view.html", context)
+    context = {
+        'comunas': comunas,
+        'especialidades': especialidades,
     }
     return render(request, "list_view.html", context)

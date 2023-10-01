@@ -11,7 +11,7 @@
         {% if messages %}
         <div class="messages">
             {% for message in messages %}
-            <div class="message alert alert-success">
+            <div class="message alert alert-success" id="mensaje">
                 {{ message }}
             </div>
             {% endfor %}
@@ -35,7 +35,7 @@
                     </div>
                 {% endfor %}
                 
-                <input type="submit" value="Crear">
+                <input type="submit" value="Crear" id="crear">
             </form>
         </div>
     </div>
