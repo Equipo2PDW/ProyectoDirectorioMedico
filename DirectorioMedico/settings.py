@@ -25,10 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['proyecto-psw-directorio-medico.azurewebsites.net']
 
+CORS_ALLOWED_ORIGINS = [
+    "https://proyecto-psw-directorio-medico.azurewebsites.net/",
+]
+
+CSRF_TRUSTED_ORIGINS = ['https://proyecto-psw-directorio-medico.azurewebsites.net']
 
 # Application definition
 
@@ -45,6 +50,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
