@@ -1,6 +1,6 @@
 # ProyectoDirectorioMedico
 
-## Para Windows
+## Configuración en Windows
 Crear  entorno virtual en la carpeta ProyectoDirectorioMedico
 python -m virtualenv venv
 
