@@ -34,6 +34,7 @@ def update_view(request, id):
 
 def delete_view(request, id):
     context = {}
+    context['data'] = Medico.objects.get(id = id)
     obj = get_object_or_404(Medico, id = id)
     if request.method == "POST":
         obj.delete()
