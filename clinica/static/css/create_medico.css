@@ -1,0 +1,98 @@
+/* Estilo para el contenedor principal */
+.main {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para los campos del formulario */
+form p {
+    margin: 10px 0;
+}
+
+/* Estilo para el botón de enviar */
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de enviar al pasar el mouse */
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+h1 {
+    font-size: var(--heading);
+    color: var(--text);
+    margin: 0;
+    padding: 5px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 90%;
+    height: 4px;
+    background-color: var(--accent);
+    /* margin-top: 5px; */
+}
+
+.messages {
+    margin: 10px;
+}
+
+.message {
+    padding: 10px;
+    border: 1px solid #4CAF50;
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select[multiple] {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* Estilo para el botón de enviar */
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de enviar al pasar el mouse */
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}

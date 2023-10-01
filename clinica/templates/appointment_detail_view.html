@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/appointment_detail_view.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<div class="main">
+    <!-- especificar datos de la cita-->
+    <div class="table-containter">
+        <table>
+            <thead>
+                <tr>
+                <th>Médico</th>
+                <!-- <th>Especialidad</th> -->
+                <th>Paciente</th>
+                <th>Sucursal</th>
+                <th>Fecha</th>
+                <th>hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>{{ cita.medico.nombre }} {{ cita.medico.apellido }}</td>
+                <td>{{ cita.paciente.nombre }} {{cita.paciente.apellido}}</td>
+                <td>{{ cita.centro.nombre }} {{ cita.centro.direccion }}</td>
+                <td>{{ cita.fecha }}</td>
+                <td>{{ cita.hora }}</td>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+</div>

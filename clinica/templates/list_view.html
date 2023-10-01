@@ -1,0 +1,113 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+<div class="container">
+
+    <div class="text-container">
+        <h1>Conoce a nuestros medicos</h1>
+        <h2>Utilizando nuestra herramienta, puedes buscar a nuestros medicos por su nombre, especialidad o cercania.</h2>
+        {% for comuna in comunas %}
+            {{ comuna.nombre }}
+        {% endfor %} 
+        <br>
+        {% for espe in especialidades %}
+            {{ espe.tipo }}
+        {% endfor %} 
+    </div>
+    <form method="post" action="#">
+        {% csrf_token %}
+
+        <!-- Lista desplegable para la comuna -->
+        <label for="comuna">Comuna:</label>
+        <select name="comuna" id="comuna">
+            <option value="">Selecciona una comuna</option>
+            {% for comuna in comunas %}
+                <option value="{{ comuna.nombre }}">{{ comuna.nombre }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Lista desplegable para la especialidad -->
+        <label for="especialidad">Especialidad:</label>
+        <select name="especialidad" id="especialidad">
+            <option value="">Selecciona una especialidad</option>
+            {% for especialidad in especialidades %}
+                <option value="{{ especialidad.tipo }}">{{ especialidad.tipo }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Campo de nombre del médico (opcional) -->
+        <label for="nombre_medico">Nombre del Médico:</label>
+        <input type="text" name="nombre_medico" id="nombre_medico">
+
+        <!-- Botón de envío -->
+        <input type="submit" value="Buscar">
+    </form>
+
+    <form action="#" class="specialist-search-form">
+        <div class="specialist-search-bar">
+            <input 
+                type="type" 
+                id="specialist-name"
+                name="specialist-name" 
+                placeholder="Ingrese nombre y/o apellido del médico"
+            >
+        </div>
+
+        <div class="specialist-search-bar">
+            
+            <select name="commune" id="commune">
+            {% for doctor in dataset %}
+                {% for sucursal in doctor.sucursales.all %}
+                <option value="{{ sucursal }}"> {{ sucursal }} </option> 
+                {% endfor %}  
+            {% endfor %}  
+            </select>            
+
+            <select name="speciality" id="speciality">
+            {% for doctor in dataset %}
+                {% for especialidad in doctor.especialidades.all %}
+                <option value="{{ especialidad }}"> {{ especialidad }} </option> 
+                {% endfor %}  
+            {% endfor %}  
+            </select>
+
+            <button type="submit" class="secondary"> Buscar </button>
+
+        </div>
+    </form>
+
+    <div class="specialist-searcher-container">
+        {% if resultados %}
+        
+        {% for doctor in resultados %}
+       
+        <a href="{% url 'detail_view' id=doctor.id %}">
+            <div class="specialist-card">
+                <figure class="specialist-img">
+                    <img src="{% static 'img/person.png' %}">
+                </figure>            
+                
+                <div class="specialist-text">
+                    <h3>Dr. {{ doctor.nombre }} {{doctor.apellido}} </h3>
+                    {% for especialidad in doctor.especialidades.all %}
+                    <p> {{ especialidad }} </p>
+                    {% endfor %}
+                    {% for sucursal in doctor.sucursales.all %}
+                    <p> {{ sucursal }} </p>
+                    {% endfor %}
+                    <p> {{ doctor.anos_experiencia }} años de experiencia profesional </p>
+                </div>
+
+            </div>
+        </a>
+
+        {% endfor %}
+        {% else %}
+            <p>No se encontraron resultados.</p>
+        {% endif %}
+
+    </div>
+</div>
+
+

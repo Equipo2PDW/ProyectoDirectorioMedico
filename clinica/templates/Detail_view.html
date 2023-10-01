@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<div class="main">
+     
+    <!-- Specify fields to be displayed -->
+    <h2> Nombre </h2>
+        {{ data.nombre }} {{data.apellido}}<br/>
+    <h2> Especialidades </h2>
+        {% for especialidad in data.especialidades.all %}
+        {{ especialidad }} <br/>
+        {% endfor %}
+    <h2> Sucursales </h2>
+        {% for sucursal in data.sucursales.all %}
+        {{ sucursal }} <br/>
+        {% endfor %}
+    <h2> Años de experiencia </h2>    
+    {{ data.anos_experiencia }} años de experiencia profesional
+
+    <br><br>
+    <a href="../{{data.id}}/update" class="btn"> Editar </a>
+
+    <a href="../{{data.id}}/delete" class="btn"> Eliminar </a>
+ 
+</div>
