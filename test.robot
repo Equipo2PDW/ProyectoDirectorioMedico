@@ -1,5 +1,5 @@
 *** Variables ***
-${ID_TEMP}              20
+${ID_TEMP}              10
 ${HOSTNAME}             localhost
 ${PORT}                 8000                
 ${SERVER_detail}               http://${HOSTNAME}:${PORT}/clinica/detail_view/${ID_TEMP}
@@ -92,5 +92,5 @@ Scenario: Eliminar medico
   Page Should Contain  Eliminar
   Click Element  id=delete
   Wait Until Page Contains  Estas seguro que deseas eliminar a este medico?
-  Click Button  yes
+  Click Button  Yes
   Wait Until Page Contains  Conoce a nuestros medicos

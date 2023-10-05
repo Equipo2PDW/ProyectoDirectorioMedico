@@ -5,12 +5,9 @@ Desarrollo de aplicación Web para un Directorio Médico basada en Django junto 
   
 
 ## Pre-requisitos 📋
-
   
-
 - Python 3
 
-  
 
 ## Instalación ⚙️
 
@@ -46,9 +43,9 @@ Desarrollo de aplicación Web para un Directorio Médico basada en Django junto 
 
 ## Detalles
 
-Panel administrador
+[Panel administrador](localhost:8000/admin)
 
-	localhost:8000/admin
+[Directorio Medico](localhost:8000/clinica/list_view)
 ## Licencia 🔓
 
   
