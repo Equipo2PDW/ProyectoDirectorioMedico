@@ -44,9 +44,6 @@ jobs:
       run: |
         python manage.py runserver
 
-    - name: Set up Chrome
-      uses: nanovms/setup-chrome@v1
-
     - name: Wait for Django server to start
       run: |
         sleep 5
