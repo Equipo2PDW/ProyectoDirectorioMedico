@@ -28,6 +28,6 @@ urlpatterns = [
     path('buscar_comuna/<comuna>', buscar_comuna),
     path('buscar_especialidad_comuna/<especialidad>/<comuna>', buscar_especialidad_comuna),
     path('citas_view', todo_view),
-    path('clinica/delete_cita/<id>/', delete_cita, name='delete_cita'),
+    path('delete_cita/<id>/', delete_cita, name='delete_cita_view'),
     path('create_cita', create_cita),
 ]
