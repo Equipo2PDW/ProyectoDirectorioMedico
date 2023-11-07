@@ -14,7 +14,8 @@ from .views import (detail_view,
                     comunas_view,
                     todo_view,
                     especialidades_view,
-                    vista_principal_busqueda
+                    vista_principal_busqueda,
+                    delete_cita
                     )
 
 urlpatterns = [
@@ -27,5 +28,6 @@ urlpatterns = [
     path('buscar_comuna/<comuna>', buscar_comuna),
     path('buscar_especialidad_comuna/<especialidad>/<comuna>', buscar_especialidad_comuna),
     path('citas_view', todo_view),
+    path('clinica/delete_cita/<id>/', delete_cita, name='delete_cita'),
     path('create_cita', create_cita),
 ]
