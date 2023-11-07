@@ -82,7 +82,8 @@ def create_cita(request):
     form = CitaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect(citas_view)
+        messages.success(request, 'Cita añadida correctamente.')
+        return HttpResponseRedirect("/clinica/citas_view")
     context['form'] = form
     return render(request, "create_cita.html", context)
 
