@@ -1,11 +1,22 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/create_medico.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
 <div class="main">
+    <h1>
+        Crear cita medica
+    </h1>
     <!-- Create a Form -->
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
  
-        <!-- form as paragraph -->
-        {{ form.as_p }}
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    {{ field }}
+            </div>
+        {% endfor %}
  
         <input type="submit" value="Create">
     </form>
