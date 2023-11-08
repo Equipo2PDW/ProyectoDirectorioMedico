@@ -15,7 +15,8 @@ from .views import (detail_view,
                     todo_view,
                     especialidades_view,
                     vista_principal_busqueda,
-                    delete_cita
+                    delete_cita,
+                    detalle_cita_view
                     )
 
 urlpatterns = [
@@ -30,4 +31,5 @@ urlpatterns = [
     path('citas_view', todo_view),
     path('delete_cita/<id>/', delete_cita, name='delete_cita_view'),
     path('create_cita', create_cita),
+    path('detalle_cita/<id>',detalle_cita_view),
 ]
