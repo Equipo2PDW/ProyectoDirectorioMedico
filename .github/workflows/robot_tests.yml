@@ -39,11 +39,13 @@ jobs:
         sleep 15
 
     - name: Set up Chrome
-      uses: browser-actions/setup-chrome@latest
+      uses: browser-actions/setup-chrome@v1
+      with:
+        chrome-version: "188.0.5993.117"
 
     - name: Download and setup ChromeDriver
       run: |
-        CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        CHROME_DRIVER_VERSION="118.0.5993.70"
         curl https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -O
         unzip chromedriver_linux64.zip
         sudo mv chromedriver /usr/local/bin
