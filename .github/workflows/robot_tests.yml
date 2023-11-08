@@ -38,18 +38,8 @@ jobs:
       run: |
         sleep 15
 
-    - name: Set up Chrome
-      uses: browser-actions/setup-chrome@v1
-      with:
-        chrome-version:"89.0.4389.82"
-
-    - name: Download and setup ChromeDriver
-      run: |
-          CHROME_DRIVER_VERSION="LATEST_RELEASE_89.0.4389.82"
-          curl https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -O
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin
-          sudo chmod +x /usr/local/bin/chromedriver
+    - name: Chrome/Chromedriver Matcher Action
+      uses: jamesmortensen/chromedriver-matcher-action@v1.0.1
 
     - name: Run Robot Framework tests
       run: |
