@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - proyecto-psw-directorio-med
 on:
   push:
     branches:
-      - release/pre-deploy
+      - main
   workflow_dispatch:
 
 jobs:
