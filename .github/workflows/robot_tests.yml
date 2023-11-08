@@ -11,23 +11,14 @@ jobs:
   build:
 
     runs-on: ubuntu-22.04
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.10, 3.11, 3.12]
-
-    services:
-      selenium:
-        image: selenium/standalone-chrome:latest
-        options: --shm-size=2g
-
+    
     steps:
     - uses: actions/checkout@v3
     
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.12
       uses: actions/setup-python@v3
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.12
         
     - name: Install Dependencies
       run: |
@@ -39,17 +30,21 @@ jobs:
         python manage.py makemigrations
         python manage.py migrate
        
-    - name: Run Server
+    - name: Start Django server
       run: |
-        python manage.py runserver
+        python manage.py runserver &
 
-    - name: Wait for Django server to start
+    - name: Wait for server to start
       run: |
-        sleep 5
-    
-    - name: Run Tests
-      env:
-          SELENIUM_HOST: localhost
-          SELENIUM_PORT: 8000
+        sleep 15
+
+    - name: Set up Chrome
+      uses: browser-actions/setup-chrome@latest
+
+    - name: Run Robot Framework tests
       run: |
-        robot --variable SELENIUM_HOST:$SELENIUM_HOST --variable SELENIUM_PORT:$SELENIUM_PORT test.robot
+        robot test.robot
+
+    - name: Stop Django server
+      run: |
+        kill $(lsof -t -i:8000)
