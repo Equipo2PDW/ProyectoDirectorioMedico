@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/319705fd-28e0-46fc-b5a5-e0460b01c036/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/proyecto-psw-directorio-medico",
+    "appService.deploySubpath": "."
+}
