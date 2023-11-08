@@ -41,7 +41,7 @@ class Medico(models.Model): #antecedentes y credenciales
 
 
     def __str__(self):
-        return self.nombre + " " + self.apellido + " " + str (self.id)
+        return self.nombre + " " + self.apellido
     
     class Meta:
         verbose_name_plural="Médicos"

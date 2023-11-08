@@ -12,11 +12,6 @@ jobs:
 
     runs-on: ubuntu-22.04
     
-    services:
-      selenium:
-        image: selenium/standalone-chrome:latest
-        options: --shm-size=2g
-
     steps:
     - uses: actions/checkout@v3
     
@@ -35,17 +30,31 @@ jobs:
         python manage.py makemigrations
         python manage.py migrate
        
-    - name: Run Server
+    - name: Start Django server
       run: |
-        python manage.py runserver
+        python manage.py runserver &
 
-    - name: Wait for Django server to start
+    - name: Wait for server to start
       run: |
         sleep 15
-    
-    - name: Run Tests
-      env:
-          SELENIUM_HOST: localhost
-          SELENIUM_PORT: 8000
+
+    - name: Set up Chrome
+      uses: browser-actions/setup-chrome@v1.2.3
+      with:
+        chrome-version: 114.0.5735
+
+    - name: Download and setup ChromeDriver
       run: |
-        robot --variable SELENIUM_HOST:$SELENIUM_HOST --variable SELENIUM_PORT:$SELENIUM_PORT test.robot
+          CHROME_DRIVER_VERSION="LATEST_RELEASE_114.0.5735"
+          curl https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -O
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin
+          sudo chmod +x /usr/local/bin/chromedriver
+
+    - name: Run Robot Framework tests
+      run: |
+        robot test.robot
+
+    - name: Stop Django server
+      run: |
+        kill $(lsof -t -i:8000)

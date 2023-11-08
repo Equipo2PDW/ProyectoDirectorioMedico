@@ -18,13 +18,18 @@
             </thead>
             <tbody>
                 <tr>
-                <td>{{ cita.medico.nombre }} {{ cita.medico.apellido }}</td>
-                <td>{{ cita.paciente.nombre }} {{cita.paciente.apellido}}</td>
-                <td>{{ cita.centro.nombre }} {{ cita.centro.direccion }}</td>
-                <td>{{ cita.fecha }}</td>
-                <td>{{ cita.hora }}</td>
+                <td>{{ data.medico.nombre }} {{ data.medico.apellido }}</td>
+                <td>{{ data.paciente.nombre }} {{data.paciente.apellido}}</td>
+                <td>{{ data.centro.nombre }} {{ data.centro.direccion }}</td>
+                <td>{{ data.fecha }}</td>
+                <td>{{ data.hora }}</td>
                 </tr> 
             </tbody>
         </table>
     </div>
+    <a href="../{{data.id}}/update" class="btn"> Editar </a>
+
+    <a href="../delete_cita/{{data.id}}" class="btn" id="delete"> Eliminar </a>
+
+    <a href="../citas_view" class="btn"> Volver </a>
 </div>
