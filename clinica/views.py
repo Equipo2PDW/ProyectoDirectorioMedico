@@ -77,6 +77,13 @@ def citas_view(request):
 
     return render(request, "citas_view.html", context)
 
+def detalle_cita_view(request, id):
+    context = {}
+    context['data'] = citaMedica.objects.get(id=id)
+    print(context['data'])  # Agregar esta línea para depurar
+    return render(request, "appointment_detail_view.html", context)
+
+
 def delete_cita(request, id):
     context = {}
     context['cita'] = citaMedica.objects.get(id=id)
