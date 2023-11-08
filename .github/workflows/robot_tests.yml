@@ -41,6 +41,14 @@ jobs:
     - name: Set up Chrome
       uses: browser-actions/setup-chrome@latest
 
+    - name: Download and setup ChromeDriver
+      run: |
+        CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+        curl https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -O
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin
+        sudo chmod +x /usr/local/bin/chromedriver
+
     - name: Run Robot Framework tests
       run: |
         robot test.robot
