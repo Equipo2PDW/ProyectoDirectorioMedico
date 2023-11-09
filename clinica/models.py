@@ -83,7 +83,7 @@ class citaMedica(models.Model):
     #estado = models.CharField(max_length=200)
 
     def __str__(self):
-        return "Médico: " + self.medico.apellido + " | Paciente: " + self.paciente.apellido + " | Fecha: " + str(self.fecha) + " | Hora: " + str(self.hora) 
+        return "id:" + str(self.id) + "Médico: " + self.medico.apellido + " | Paciente: " + self.paciente.apellido + " | Fecha: " + str(self.fecha) + " | Hora: " + str(self.hora) 
     class Meta:
         verbose_name_plural="Citas Médicas"
         ordering=['medico']
