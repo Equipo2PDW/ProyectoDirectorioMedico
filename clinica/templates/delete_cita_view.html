@@ -3,8 +3,8 @@
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
-        Are you sure you want to delete this item ?
+        ¿Estás segur@ de eliminar esta cita?
         <input type="submit" value="yes" />
-        <a href="../../detalle_cita/{{cita.id}}">Cancel</a>
+        <a href="../../detalle_cita/{{cita.id}}">Cancelar</a>
     </form>
 </div>
