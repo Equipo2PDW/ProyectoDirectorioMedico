@@ -76,8 +76,6 @@ h1::after {
 
 .message {
     padding: 10px;
-    border: 1px solid #4CAF50;
-    background-color: #4CAF50;
     color: #fff;
 }
 
@@ -141,4 +139,25 @@ a.btn {
 
 a.btn:hover {
     background: #5b6ea7;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+/* Estilos para mensajes de error */
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
 }

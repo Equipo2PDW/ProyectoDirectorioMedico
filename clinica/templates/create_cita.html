@@ -10,14 +10,15 @@
             <h1>Añadir una cita medica</h1>
         </div>
         {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-            <div class="message alert alert-success" id="mensaje">
-                {{ message }}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="message {% if 'error' in message.tags %}alert alert-danger{% elif 'success' in message.tags %}alert alert-success{% endif %}" id="mensaje">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
         {% endif %}
+
         <div class="main">
             <!-- Crear un formulario -->
             <form method="POST">
