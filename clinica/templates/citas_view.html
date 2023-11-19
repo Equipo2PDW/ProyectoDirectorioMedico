@@ -3,33 +3,24 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 
-<div class="card-container">
-    <div class = "doctor-container">
-        <div class="doctor-info">
-            <h3 style="text-align: center;">{{ medico.nombre }} {{ medico.apellido }} </h3>
-            <button>Agenda tu hora</button>
-        </div>
-    </div>
-    <div class="specs-container">
-        <div class="doctor-info">
-            <!-- falta backend jeje-->
-            <h1>Estudios</h1>
-            <table class="table-studios">
-                <thead>
-                    <tr>
-                    <th>{{medico.especialidad.nombre}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>{{ medico.especialidad.experiencia }} </td>
-                    </tr>
-                    <tr>
-                        <td>{{ medico.especialidad.universidad }} </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+{% include 'navbar.html' %}
 
+<div class="doctor-container">
+    <a href="create_cita" class="btn">Agenda hora</a>
+</div>
+
+<div class="card-container">
+        {% for cita in citas %}
+        <a href="{% url 'detalle_cita_view' id=cita.id %}" ="card">
+            <div class="card-header">
+                <h2>{{ cita.medico }}</h2>
+            </div>
+            <div class="card-body">
+                <p>{{ cita.fecha }}</p>
+                <p>{{ cita.hora }}</p>
+                <p>{{ cita.sucursal }}</p>
+                <p>{{ cita.centro }}</p>
+            </div>
+        </a>
+        {% endfor %}
 </div>

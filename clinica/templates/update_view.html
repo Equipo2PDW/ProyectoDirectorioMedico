@@ -1,6 +1,8 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/create_medico.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+{% include 'navbar.html' %}
 <div class="main">
     <!-- Create a Form -->
     <form method="POST">
@@ -10,8 +12,10 @@
         <!-- form as paragraph -->
         {{ form.as_p }}
  
-        <input type="submit" value="Update">
+        <div class="button-container">
+            <a href="../list_view" class="btn">Volver</a>
+            <input type="submit" value="Actualizar">
+        </div>
     </form>
-    <a href="../list_view">Volver</a>
  
 </div>

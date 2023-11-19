@@ -1,0 +1,25 @@
+<style>
+.navbar {
+    overflow: hidden;
+    background-color: #4b5996;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+</style>
+
+<div class="navbar">
+    <a href="{% url 'list_view' %}">Medicos</a>
+    <a href="{% url 'citas_view' %}">Citas</a>
+</div>

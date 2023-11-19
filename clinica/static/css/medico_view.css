@@ -1,29 +1,85 @@
-.card-container{
-    display: grid;
-    width: 80%;
-    margin: auto;
-    height: 400px;
-    grid-gap: 25px;
-    grid-template-columns: minmax(0,1fr) minmax(0,1fr);
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+:root {
+    /* ===== Colors ===== */
+    --text: hsl(0, 0%, 0%);
+
+    /* Primary - White */
+    --bg: hsl(0, 0%, 100%);
+    --bg-2: hsl(0, 0%, 74%);
+    --bg-3: hsl(0, 0%, 62%);
+    --bg-4: hsl(0, 0%, 46%);
+
+    /* Secundary - Blue */
+    --secondary: hsl(245, 82%, 44%);
+    --secondary-d2: hsl(245, 82%, 30%);
+    --secondary-d3: hsl(244, 81%, 17%);
+
+    /* Accent - Green */
+    --accent: hsl(138, 96%, 51%);
+    --accent-d2: hsl(138, 90%, 36%);
+    --accent-d3: hsl(138, 90%, 27%);
+
+    /* Warning - Red */
+    --warning: hsl(1, 95%, 59%);
+    --warning-d2: hsl(1, 67%, 44%);
+    --warning-d3: hsl(1, 67%, 30%);
+
+    /* ===== Font sizes ===== */
+    /*  Hay que ver mejor lo de los tamaños */
+    --heading: 36px;
+    --subheading: 28px;
+    --body: 16px;
+    --label: 11px;
 }
 
-.doctor-container{
-    grid-column: 1/1;
+body {
+    font-family: Poppins !important;
+    font-weight: 400;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
 }
 
-.specs-container{
-    grid-column: 2/2;
-    width: 100%;
+h2 {
+    font-size: var(--subheading);
+    color: var(--bg-4);
+    margin: 0px;
+    padding: 5px;
 }
 
-.doctor-info{
+.main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1.45rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+a.btn {
+    font-size: var(--body);
+    display: flex;
+    background: #4b5996;
+    text-align: center;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    padding: 0.625rem 1.875rem;
+    text-decoration : none;
+}
+
+#delete {
+    background: var(--warning);
+}
+
+#edit {
+    background: var(--accent-d3);
+}
+
+a.btn:hover {
+    background: #5b6ea7;
 }

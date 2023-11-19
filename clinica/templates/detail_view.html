@@ -1,6 +1,8 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/medico_view.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+{% include 'navbar.html' %}
 <div class="main">
      
     <!-- Specify fields to be displayed -->
@@ -18,10 +20,12 @@
     {{ data.anos_experiencia }} años de experiencia profesional
 
     <br><br>
-    <a href="../{{data.id}}/update" class="btn"> Editar </a>
 
-    <a href="../{{data.id}}/delete" class="btn" id="delete"> Eliminar </a>
+    
+</div>
 
+<div class="button-container">
     <a href="../list_view" class="btn"> Volver </a>
- 
+    <a href="../{{data.id}}/delete" class="btn" id="delete"> Eliminar </a>
+    <a href="../{{data.id}}/update" class="btn" id="edit"> Editar </a>
 </div>

@@ -2,6 +2,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/create_medico.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 
+{% include 'navbar.html' %}
+
 <div class="container">
     <div class="container">
         <div class="text-container">
@@ -30,7 +32,10 @@
                     </div>
                 {% endfor %}
                 
-                <input type="submit" value="Crear" id="crear">
+                <div class="button-container">
+                    <a href="citas_view" class="btn">Volver</a>
+                    <input type="submit" value="Crear" id="crear">
+                </div>
             </form>
         </div>
     </div>

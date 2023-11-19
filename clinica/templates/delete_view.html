@@ -1,10 +1,18 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/delete_view.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+{% include 'navbar.html' %}
+
 <div class="main">
     <!-- Create a Form -->
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
-        Estas seguro que deseas eliminar a este medico?
-        <input type="submit" value="Yes"/>
-        <a href="../detail_view/{{data.id}}">Cancel</a>
+        <p> Estas seguro que deseas eliminar a este medico? </p>
+        <div class="button-container">
+            <a href="../detail_view/{{data.id}}" class="btn">No</a>
+            <input type="submit" value="Si"/>
+        </div>
     </form>
 </div>

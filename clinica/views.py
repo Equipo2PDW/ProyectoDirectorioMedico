@@ -73,7 +73,7 @@ def buscar_especialidad_comuna(request, especialidad, comuna):
 
 def citas_view(request):
     context = {}
-    context['dataset'] = citaMedica.objects.all()
+    context['citas'] = citaMedica.objects.all()
 
     return render(request, "citas_view.html", context)
 

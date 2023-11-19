@@ -1,10 +1,18 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/delete_view.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+{% include 'navbar.html' %}
+
 <div class="main">
     <!-- Create a Form -->
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
-        ¿Estás segur@ de eliminar esta cita?
-        <input type="submit" value="yes" />
-        <a href="../../detalle_cita/{{cita.id}}">Cancelar</a>
+        <p> Estas seguro que deseas eliminar esta cita? </p>
+        <div class="button-container">
+            <a href="{% url 'detalle_cita_view' id=cita.id%}" class="btn">No</a>
+            <input type="submit" value="Si"/>
+        </div>
     </form>
 </div>

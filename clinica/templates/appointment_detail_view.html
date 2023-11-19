@@ -2,6 +2,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/appointment_detail_view.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+{% include 'navbar.html' %}
 <div class="main">
     <!-- especificar datos de la cita-->
     <div class="table-containter">
@@ -27,9 +29,9 @@
             </tbody>
         </table>
     </div>
-    <a href="../{{data.id}}/update" class="btn"> Editar </a>
+</div>
 
-    <a href="../delete_cita/{{data.id}}" class="btn" id="delete"> Eliminar </a>
-
+<div class="button-container">
     <a href="../citas_view" class="btn"> Volver </a>
+    <a href="{% url 'delete_cita_view' id=data.id %}" class="btn" id="delete"> Eliminar </a>
 </div>

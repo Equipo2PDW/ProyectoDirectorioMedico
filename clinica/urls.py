@@ -20,7 +20,7 @@ from .views import (detail_view,
                     )
 
 urlpatterns = [
-    path('list_view', vista_principal_busqueda),
+    path('list_view', vista_principal_busqueda, name='list_view'),
     path('detail_view/<id>', detail_view, name='detail_view'),
     path('create', create_medico, name='create_medico'),
     path('<id>/update', update_view),
@@ -28,8 +28,8 @@ urlpatterns = [
     path('buscar_especialidad/<especialidad>', buscar_especialidad),
     path('buscar_comuna/<comuna>', buscar_comuna),
     path('buscar_especialidad_comuna/<especialidad>/<comuna>', buscar_especialidad_comuna),
-    path('citas_view', todo_view, name='citas_view'),
+    path('citas_view', citas_view, name='citas_view'),
     path('delete_cita/<id>/', delete_cita, name='delete_cita_view'),
     path('create_cita', create_cita),
-    path('detalle_cita/<id>',detalle_cita_view),
+    path('detalle_cita/<id>',detalle_cita_view, name='detalle_cita_view'),
 ]
