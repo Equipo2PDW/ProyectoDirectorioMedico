@@ -6,21 +6,48 @@
 {% include 'navbar.html' %}
 
 <div class="doctor-container">
-    <a href="create_cita" class="btn">Agenda hora</a>
+    <div class="row">
+        <div class="col-md-12">
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                    <div class="message alert alert-success" id="mensaje">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
 </div>
 
-<div class="card-container">
+<div class="doctor-container">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="create_cita" class="btn btn-agenda-hora">Agendar hora</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="specialist-searcher-container" id="buscador">
+
+    
         {% for cita in citas %}
+
+        <div class="specialist-card">
         <a href="{% url 'detalle_cita_view' id=cita.id %}" ="card">
             <div class="card-header">
-                <h2>{{ cita.medico }}</h2>
+                <h2>Cita con: {{ cita.medico }}</h2>
             </div>
             <div class="card-body">
-                <p>{{ cita.fecha }}</p>
-                <p>{{ cita.hora }}</p>
+                <p>fecha: {{ cita.fecha }}</p>
+                <p>hora: {{ cita.hora }}</p>
                 <p>{{ cita.sucursal }}</p>
                 <p>{{ cita.centro }}</p>
             </div>
         </a>
+    </div>
         {% endfor %}
+    </div>
 </div>

@@ -168,6 +168,16 @@ button.accent:active {
     color: var(--text);
     background: var(--accent-d3);
 }
+.messages {
+    margin: 10px;
+}
+
+.message {
+    padding: 10px;
+    border: 1px solid #4CAF50;
+    background-color: #4CAF50;
+    color: #fff;
+}
 
 /* ===== Specialist Seacher ===== */
 

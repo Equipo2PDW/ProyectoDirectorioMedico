@@ -48,6 +48,12 @@ def create_medico(request):
         form.save()
         messages.success(request, 'Médico añadido correctamente.')
         return HttpResponseRedirect("/clinica/list_view")
+    else:
+        # Capturando los mensajes de error del formulario
+        error_messages = form.errors.as_data()
+        for field, error in error_messages.items():
+            for err in error:
+                messages.error(request, f"{field}: {err}")
     context['form'] = form
     return render(request, "create_medico.html", context)
 
@@ -101,8 +107,14 @@ def create_cita(request):
     form = CitaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        messages.success(request, 'Cita añadida correctamente.')
+        messages.success(request, 'Cita añadida correctamente.', extra_tags='success')
         return HttpResponseRedirect("/clinica/citas_view")
+    else:
+        # Capturar mensajes de error del formulario
+        error_messages = form.errors.as_data()
+        for field, error in error_messages.items():
+            for err in error:
+                messages.error(request, f"{field}: {err}", extra_tags='error')
     context['form'] = form
     return render(request, "create_cita.html", context)
 
