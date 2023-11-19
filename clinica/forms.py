@@ -1,8 +1,16 @@
 from django import forms
 from .models import Medico
 from .models import citaMedica
+from django.core.exceptions import ValidationError
+
 
 class MedicoForm(forms.ModelForm):
+
+    def clean_anos_experiencia(self):
+        anos_experiencia = self.cleaned_data.get('anos_experiencia')
+        if anos_experiencia is not None and anos_experiencia < 0:
+            raise ValidationError("Los años de experiencia no pueden ser negativos")
+        return anos_experiencia
 
     class Meta:
         model = Medico

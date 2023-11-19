@@ -40,10 +40,20 @@
 </form>
 
 <div class="create-container">
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message alert alert-success" id="mensaje">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
     <a href="{% url 'create_medico' %}" class="btn">Crear medico</a>
 </div>
 
 <div class="container">
+    
     <div class="specialist-searcher-container" id="buscador">
         {% if resultados %}
         {% for doctor in resultados %}
