@@ -53,7 +53,7 @@ class CrearCitaTest(LiveServerTestCase):
 
 		driver.get('http://localhost:8000/clinica/create_cita')
 
-		time.sleep(1)
+		#time.sleep(1)
 
 		medico = driver.find_element(By.ID, 'id_medico')
 		paciente = driver.find_element(By.ID, 'id_paciente')
@@ -63,35 +63,33 @@ class CrearCitaTest(LiveServerTestCase):
 		
 		select_medico = Select(medico)
 		select_paciente = Select(paciente)
-		#select_fecha = Select(fecha)
-		#select_hora = Select(hora)
+
 		select_centro = Select(centro)
 
 		select_medico.select_by_value('15') #alonso
 		select_paciente.select_by_value('1') #debora
-		#select_fecha.select_by_value('2023-12-01')
-		#select_hora.select_by_value('08:00')
+
 		select_centro.select_by_value('2')
 
 		fecha.send_keys('20-12-2023')
-		hora.send_keys('22:50')
-		time.sleep(2)
+		hora.send_keys('23:59')
+		#time.sleep(2)
 		
 
 		submit = driver.find_element(By.ID,'crear')
 
-		#medico.send_keys('Alonso')
 
 		submit.click()
-		time.sleep(5)
+		#time.sleep(5)
 		assert 'Cita añadida correctamente.' in driver.page_source
+		driver.quit()
 
 	def test_crear_cita_hora_incorrecta(self):
 		driver = webdriver.Chrome()
 
 		driver.get('http://localhost:8000/clinica/create_cita')
 
-		time.sleep(1)
+		#time.sleep(1)
 
 		medico = driver.find_element(By.ID, 'id_medico')
 		paciente = driver.find_element(By.ID, 'id_paciente')
@@ -118,19 +116,63 @@ class CrearCitaTest(LiveServerTestCase):
 		hora_menos_una_hora_str = hora_menos_una_hora.strftime(formato_hora)
 
 		hora.send_keys(hora_menos_una_hora_str)
-		time.sleep(2)
+		#time.sleep(2)
 		
 
 		submit = driver.find_element(By.ID,'crear')
 
 
 		submit.click()
-		time.sleep(5)
+		#time.sleep(5)
 		assert 'La hora no puede ser anterior a la hora actual.' in driver.page_source
+		driver.quit()
+	
+	def test_crear_cita_fecha_incorrecta(self):
+		driver = webdriver.Chrome()
+
+		driver.get('http://localhost:8000/clinica/create_cita')
+
+		#time.sleep(1)
+
+		medico = driver.find_element(By.ID, 'id_medico')
+		paciente = driver.find_element(By.ID, 'id_paciente')
+		fecha = driver.find_element(By.ID, 'id_fecha')
+		hora = driver.find_element(By.ID, 'id_hora')
+		centro = driver.find_element(By.ID, 'id_centro')       
+		
+		select_medico = Select(medico)
+		select_paciente = Select(paciente)
+		select_centro = Select(centro)
+
+		select_medico.select_by_value('15')
+		select_paciente.select_by_value('1')
+
+		select_centro.select_by_value('2')
+
+		# Obtener la fecha actual
+		fecha_actual = datetime.now()
+
+		# Restar una cantidad de tiempo (por ejemplo, un día)
+		fecha_menos_un_dia = fecha_actual - timedelta(days=1)
+		formato_fecha = "%d-%m-%Y"
+		fecha_menos_un_dia_str = fecha_menos_un_dia.strftime(formato_fecha)
+
+		fecha.send_keys(fecha_menos_un_dia_str)
+		hora.send_keys('23:59')
+		#time.sleep(2)
+
+		submit = driver.find_element(By.ID,'crear')
+
+
+		submit.click()
+		#time.sleep(5)
+		
+		assert 'La fecha no puede ser anterior a hoy.' in driver.page_source
+		driver.quit()
 
 #PRUEBAS UNITARIAS
 
-"""class CreateCitaViewTest(TestCase):
+class CreateCitaViewTest(TestCase):
 
 	def setUp(self):
 		self.client = Client()
@@ -183,7 +225,7 @@ class DeleteCitaViewTest(TestCase):
 		self.assertEqual(response.status_code, 302)
 		self.assertEqual(response.url, reverse('citas_view'))
 
-"""
+
 
 
 
