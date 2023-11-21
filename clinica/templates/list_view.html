@@ -35,7 +35,7 @@
     <input type="text" name="nombre_medico" id="nombre_medico">
 
     <!-- Botón de envío -->
-    <input type="submit" value="Buscar">
+    <input type="submit" value="Buscar" id="buscar_button">
 
 </form>
 
@@ -49,7 +49,7 @@
             {% endfor %}
         </div>
         {% endif %}
-    <a href="{% url 'create_medico' %}" class="btn">Crear medico</a>
+    <a href="{% url 'create_medico' %}" class="btn" id="crear_medico_button">Crear medico</a>
 </div>
 
 <div class="container">
@@ -59,7 +59,7 @@
         {% for doctor in resultados %}
        
         <a href="{% url 'detail_view' id=doctor.id %}">
-            <div class="specialist-card">
+            <div class="specialist-card" id="doctor_card_{{ doctor.id }}" >
                 <figure class="specialist-img">
                     <img src="{% static 'img/person.png' %}">
                 </figure>            
