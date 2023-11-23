@@ -47,10 +47,12 @@ class InicialTest(LiveServerTestCase):
 
 class CrearCitaTest(LiveServerTestCase):
 	fixtures = {'dump_data.json'}
+	chrome_options = webdriver.ChromeOptions()
+	chrome_options.binary_location = '/usr/bin/google-chrome'
 	 
 	def test_crear_cita_correcta(self):
 
-		driver = webdriver.Chrome()
+		driver = webdriver.Chrome(options=self.chrome_options)
 
 		driver.get(self.live_server_url + '/clinica/create_cita')
 
@@ -85,7 +87,7 @@ class CrearCitaTest(LiveServerTestCase):
 		driver.quit()
 
 	def test_crear_cita_hora_incorrecta(self):
-		driver = webdriver.Chrome()
+		driver = webdriver.Chrome(options=self.chrome_options)
 
 		driver.get(self.live_server_url + '/clinica/create_cita')
 
@@ -128,7 +130,7 @@ class CrearCitaTest(LiveServerTestCase):
 		driver.quit()
 	
 	def test_crear_cita_fecha_incorrecta(self):
-		driver = webdriver.Chrome()
+		driver = webdriver.Chrome(options=self.chrome_options)
 
 		driver.get(self.live_server_url + '/clinica/create_cita')
 
