@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: nanasess/setup-chromedriver@v2
       with:
-        chromedriver-version: '88.0.4324.96'
+        chromedriver-version: '119.0.6045.105'
     - name: Set up Python 3.12
       uses: actions/setup-python@v3
       with:
