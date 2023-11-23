@@ -9,7 +9,7 @@ from clinica.views import delete_cita
 from clinica.models import citaMedica
 from django.shortcuts import get_object_or_404
 from clinica.views import create_cita
-
+from django.core.management import call_command
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -46,12 +46,13 @@ class InicialTest(LiveServerTestCase):
 		assert 'Alonso' in driver.page_source"""
 
 class CrearCitaTest(LiveServerTestCase):
+	fixtures = {'dump_data.json'}
 	 
 	def test_crear_cita_correcta(self):
 
 		driver = webdriver.Chrome()
 
-		driver.get('http://localhost:8000/clinica/create_cita')
+		driver.get(self.live_server_url + '/clinica/create_cita')
 
 		#time.sleep(1)
 
@@ -63,7 +64,6 @@ class CrearCitaTest(LiveServerTestCase):
 		
 		select_medico = Select(medico)
 		select_paciente = Select(paciente)
-
 		select_centro = Select(centro)
 
 		select_medico.select_by_value('15') #alonso
@@ -87,7 +87,7 @@ class CrearCitaTest(LiveServerTestCase):
 	def test_crear_cita_hora_incorrecta(self):
 		driver = webdriver.Chrome()
 
-		driver.get('http://localhost:8000/clinica/create_cita')
+		driver.get(self.live_server_url + '/clinica/create_cita')
 
 		#time.sleep(1)
 
@@ -130,7 +130,7 @@ class CrearCitaTest(LiveServerTestCase):
 	def test_crear_cita_fecha_incorrecta(self):
 		driver = webdriver.Chrome()
 
-		driver.get('http://localhost:8000/clinica/create_cita')
+		driver.get(self.live_server_url + '/clinica/create_cita')
 
 		#time.sleep(1)
 
