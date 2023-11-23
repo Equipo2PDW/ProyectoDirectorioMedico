@@ -52,7 +52,6 @@ class CrearCitaTest(LiveServerTestCase):
 	chrome_options.add_argument("--headless=new")
 		
 	def test_crear_cita_correcta(self):
-
 		driver = webdriver.Chrome(options=self.chrome_options)
 
 		driver.get(self.live_server_url + '/clinica/create_cita')
@@ -74,16 +73,14 @@ class CrearCitaTest(LiveServerTestCase):
 
 		select_centro.select_by_value('2')
 
-		fecha.send_keys('20-12-2023')
-		hora.send_keys('23:59')
+		fecha.send_keys('12-20-2023')
+		hora.send_keys('11:59PM')
 		#time.sleep(2)
 		
-
 		submit = driver.find_element(By.ID,'crear')
 
-
 		submit.click()
-		#time.sleep(5)
+		# time.sleep(5)
 		assert 'Cita añadida correctamente.' in driver.page_source
 		driver.quit()
 
@@ -109,13 +106,13 @@ class CrearCitaTest(LiveServerTestCase):
 		
 		select_centro.select_by_value('2')
 
-		fecha.send_keys('20-12-2023')
+		fecha.send_keys('12-20-2023')
 		# Obtener la hora actual
 		hora_actual = datetime.now()
 
 		# Restar una cantidad de tiempo (por ejemplo, una hora)
 		hora_menos_una_hora = hora_actual - timedelta(hours=1)
-		formato_hora = "%H:%M"  # Formato para mostrar solo la hora:Minuto:Segundo
+		formato_hora = "%I:%M%p"  # Formato para mostrar solo la hora:Minuto:Segundo
 		hora_menos_una_hora_str = hora_menos_una_hora.strftime(formato_hora)
 
 		hora.send_keys(hora_menos_una_hora_str)
@@ -126,7 +123,7 @@ class CrearCitaTest(LiveServerTestCase):
 
 
 		submit.click()
-		#time.sleep(5)
+		# time.sleep(5)
 		assert 'La hora no puede ser anterior a la hora actual.' in driver.page_source
 		driver.quit()
 	
@@ -157,18 +154,18 @@ class CrearCitaTest(LiveServerTestCase):
 
 		# Restar una cantidad de tiempo (por ejemplo, un día)
 		fecha_menos_un_dia = fecha_actual - timedelta(days=1)
-		formato_fecha = "%d-%m-%Y"
+		formato_fecha = "%m-%d-%Y"
 		fecha_menos_un_dia_str = fecha_menos_un_dia.strftime(formato_fecha)
 
 		fecha.send_keys(fecha_menos_un_dia_str)
-		hora.send_keys('23:59')
+		hora.send_keys('11:59PM')
 		#time.sleep(2)
 
 		submit = driver.find_element(By.ID,'crear')
 
 
 		submit.click()
-		#time.sleep(5)
+		# time.sleep(5)
 		
 		assert 'La fecha no puede ser anterior a hoy.' in driver.page_source
 		driver.quit()
