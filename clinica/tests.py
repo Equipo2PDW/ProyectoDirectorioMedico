@@ -12,6 +12,7 @@ from clinica.views import create_cita
 from django.core.management import call_command
 from django.test import LiveServerTestCase
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
@@ -47,10 +48,12 @@ class InicialTest(LiveServerTestCase):
 
 class CrearCitaTest(LiveServerTestCase):
 	fixtures = {'dump_data.json'}
-	 
+	chrome_options = Options()
+	chrome_options.add_argument("--headless=new")
+		
 	def test_crear_cita_correcta(self):
 
-		driver = webdriver.Chrome()
+		driver = webdriver.Chrome(options=self.chrome_options)
 
 		driver.get(self.live_server_url + '/clinica/create_cita')
 
@@ -85,7 +88,7 @@ class CrearCitaTest(LiveServerTestCase):
 		driver.quit()
 
 	def test_crear_cita_hora_incorrecta(self):
-		driver = webdriver.Chrome()
+		driver = webdriver.Chrome(options=self.chrome_options)
 
 		driver.get(self.live_server_url + '/clinica/create_cita')
 
@@ -128,7 +131,7 @@ class CrearCitaTest(LiveServerTestCase):
 		driver.quit()
 	
 	def test_crear_cita_fecha_incorrecta(self):
-		driver = webdriver.Chrome()
+		driver = webdriver.Chrome(options=self.chrome_options)
 
 		driver.get(self.live_server_url + '/clinica/create_cita')
 
